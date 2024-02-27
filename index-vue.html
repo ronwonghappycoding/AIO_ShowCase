@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="/sharecss/mainstyle.css">
+    <!-- w3 css-->
+    <!--link rel="stylesheet" href="/w3css/w3.css"-->
+    <head>
+        <title>AIO</title>
+        <!-- hide everything from readering-->
+        <style>
+            [v-cloak]{
+                display: none; 
+            } 
+        </style>
+        <!--  -->
+    </head>
+
+<body>
+    <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQxOS0yMDAzMV8xLmpwZw.jpg" style="min-height:50px;max-height:200px;">
+    <h1>Show Case A</h1>
+    <div id="one_page_webapp_page1" v-cloak>
+        {{ vdom1 }} <!-- //Load the Vdom and get...-->
+        <input v-model ="vdom1"> <!-- Load the Vdom into input text box and sync with input-->
+        
+        <hr/>
+        <div v-if="box1_on" class="box w3-round w3-teal" w3-round >  <!--with w3 css , don't forget to Load manually in line 5-->
+        </div>          
+        <button v-on:click="box1_on = !box1_on">Show me</button>
+        <div v-show="box2_on" class="box"> <!--stay render-->
+        </div>
+        <button @click="box2M">Show me</button> <!--Vdom-->
+    </div>
+</div>
+
+<!-- All Script start here-->
+<!-- allow only JavaScrip with vue.js here, keep house tiny and no all code in one place-->
+<script src="/src/js/vuejs3420/vue.global.prod.js"></script> <!--Code Base on vue3 dist gloabl v3.4.20, backup file in /src/js/--> 
+    <script>
+        const app = Vue.createApp({
+            data: function() {
+                return {
+                    vdom1: 'Hello my friend!',
+                    box1_on: true,
+                    box2_on: false
+                }
+                },
+                methods: {
+                    box2M() {
+                       this.box2_on = !box2_on
+                    }
+                }
+            
+        })
+        app.mount ('#one_page_webapp_page1')
+    </script>
+<!-- allow only JavaScrip with vue.js here, keep house tiny and no all code in one place-->
+<!-- All Script end here-->
+
+</body>
+</html>
